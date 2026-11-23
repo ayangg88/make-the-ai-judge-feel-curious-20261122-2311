@@ -25,6 +25,8 @@ def main():
     chars = len(TEXT)
     if not 1 <= chars <= 280:
         raise ValueError(f"entry text is {chars} characters, must be 1-280")
+    if not TEXT.strip():
+        raise ValueError("entry text must not be only white space")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(TEXT)
